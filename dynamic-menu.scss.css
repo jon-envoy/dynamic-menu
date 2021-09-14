@@ -1,0 +1,191 @@
+/* -- Dynamic Menu ----------------------------------------------------------------- */
+
+.openArrow {
+  background-image: url(//theme.zdassets.com/theme_assets/2325111/abe564512cb446430dc513849741f3a1fd72be2d.svg);
+  background-size: 15px;
+  right: 13px;
+  background-repeat: no-repeat;
+}
+
+.closedArrow {
+  background-image: url(//theme.zdassets.com/theme_assets/2325111/faa0ac78066651fb0cf775e5c530938ce12c5e90.svg);
+  background-size: 8px;
+  background-repeat: no-repeat;
+}
+
+#dynamic-menu-container {
+  width: 100%;
+  margin-right: 40px;
+
+  a {
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none !important;
+      cursor: pointer;
+    }
+
+  }
+
+  #menu {
+    margin-bottom: 60px;
+
+    li {
+      padding: 0;
+      margin: 0px;
+      list-style: none;
+    }
+
+    a {
+      color: #000;
+      font-weight: 600;
+      display: block;
+      padding: 10px 35px 10px 20px;
+      border-radius: 15px 0px 0px 15px;
+      line-height: 1.35em;
+      position: relative;
+
+      &:after {
+        content: '';
+        .closedArrow;
+        position: absolute;
+        width: 100%;
+        display: block;
+        right: 15px;
+        background-position: right center;
+        height: 100%;
+        top: 0px;
+        opacity: 0;
+      }
+
+      &:hover {
+        color: #000;
+
+        &:after {
+          opacity: 1;
+        }
+
+      }
+
+    }
+
+    .open {
+      .open {
+        a:after {
+          opacity: 0;
+        }
+
+        a:hover:after {
+          opacity: .6;
+        }
+
+        .open {
+          a:after {
+            opacity: .6
+          }
+
+        }
+
+      }
+
+    }
+
+    .open .sub-menu {
+      max-height: none;
+      opacity: 1;
+      transition: all .2s linear;
+
+      .open a:after {
+        .openArrow;
+      }
+
+      .article-sub-menu.open {
+        max-height: none;
+        opacity: 1;
+        transition: all .2s linear;
+      }
+
+      .article-sub-menu {
+        max-height: 0px;
+        overflow: hidden;
+        transition: all .2s linear;
+        opacity: 0;
+      }
+
+      .current-article-li {
+        background: #000;
+
+        a {
+          color: #fff;
+        }
+
+      }
+
+    }
+
+    .sub-menu {
+      margin-left: 30px;
+      max-height: 0px;
+      overflow: hidden;
+      transition: all .2s linear;
+      opacity: 0;
+
+      a {
+        font-weight: 400;
+        color: #000;
+
+        &:hover {
+          text-decoration: none;
+          color: #000;
+          cursor: hand;
+        }
+
+      }
+
+      &.open {
+        max-height: none;
+        opacity: 1;
+        transition: all .2s linear;
+      }
+
+      &.article-sub-menu {
+        margin-left: 30px;
+
+        a {
+          &:after {
+            display: none;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+#dynamic-menu-container #menu {
+  .current-category {
+    .current-section.open {
+      a:after {
+        .openArrow;
+      }
+
+    }
+
+  }
+
+  .cat-menu-list.open {
+    &>a:after {
+      .openArrow;
+      opacity: 1;
+    }
+
+  }
+
+}
+
+/* /  Dynamic Menu ----------------------------------------------------------------- */
